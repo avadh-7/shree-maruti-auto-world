@@ -44,12 +44,23 @@ export default function ContactForm() {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate API request
+
+    const formattedText = `*New Contact Inquiry (Shree Maruti Auto World)*\n\n` +
+      `*Your Name:* ${form.name}\n` +
+      `*Phone Number:* ${form.phone}\n` +
+      `*Email Address:* ${form.email}\n` +
+      `*Subject:* ${form.subject}\n` +
+      `*Your Message:* ${form.message}`;
+
+    const whatsappUrl = `https://wa.me/917069290692?text=${encodeURIComponent(formattedText)}`;
+
+    // Simulate small delay then redirect to WhatsApp and show success page
     setTimeout(() => {
+      window.open(whatsappUrl, "_blank");
       setIsSubmitting(false);
       setIsSubmitted(true);
       setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-    }, 1500);
+    }, 800);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

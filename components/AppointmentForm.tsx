@@ -77,11 +77,26 @@ function AppointmentFormInner() {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate booking API
+
+    const formattedText = `*Car Service Appointment Request (Shree Maruti Auto World)*\n\n` +
+      `*Full Name:* ${form.name}\n` +
+      `*Phone Number:* ${form.phone}\n` +
+      `*Email Address:* ${form.email}\n` +
+      `*Car Brand / Make:* ${form.brand}\n` +
+      `*Car Model:* ${form.model}\n` +
+      `*Service Required:* ${form.service}\n` +
+      `*Preferred Date:* ${form.date}\n` +
+      `*Preferred Time Slot:* ${form.time}\n` +
+      `*Additional Notes or Concerns:* ${form.message || "None"}`;
+
+    const whatsappUrl = `https://wa.me/917069290692?text=${encodeURIComponent(formattedText)}`;
+
+    // Simulate small delay then redirect to WhatsApp and show success page
     setTimeout(() => {
+      window.open(whatsappUrl, "_blank");
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1500);
+    }, 800);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {

@@ -9,7 +9,7 @@ export default function FloatingActions() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-end pointer-events-none">
       {/* WhatsApp Button */}
       <motion.a
-        href="https://wa.me/917069290692?text=Hi%20Maruti%20Auto%20World%2C%20I%20want%20to%20inquire%20about%20a%20car%20service."
+        href="https://wa.me/917069290692"
         target="_blank"
         rel="noopener noreferrer"
         className="pointer-events-auto w-14 h-14 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full flex items-center justify-center shadow-lg relative group transition-colors duration-300"
